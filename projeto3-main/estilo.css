@@ -1,0 +1,239 @@
+
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
+}
+.cabecalho{
+    background-color: #141414;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 30px;
+}
+.cabecalho nav{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+.cabecalho nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.banner{
+    position: relative;
+    background: url(./fotos/5.jpg) no-repeat center center/cover;
+    padding: 30px 1rem 2rem;
+    background-size: cover;
+   
+}
+
+.banner::after{
+    content: '';
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.536), rgba(0, 0, 0, 0.901));
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.conteudo{
+    position: relative;
+    max-width: 100%;
+    color: white;
+    z-index: 2;
+}
+
+.titulo{
+      font-family: "Great Vibes", cursive;
+      font-size: 40px;
+      margin: 0;
+}
+.detalhes{
+    margin: 10px 0;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.descricao{
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.botoes{
+    margin-top: 20px;
+}
+.botoes button{
+    background: #fff;
+    color: black;
+    border: none;
+    padding: 10px 16px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.momentos{
+    padding: 1.5rem 1rem;
+}
+
+.momentos h2{
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+.swiper{
+    width: 100%;
+    padding-bottom: 20px;
+}
+.swiper-slide {
+        width: auto !important;
+         width: 300px; /* Defina a largura desejada */
+        height: 200px;
+}
+.swiper-slide img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+@media(min-width: 900px){
+    .swiper-slide img {
+        width: 600px;
+    }
+}
+
+footer{
+    background-color: #141414;
+    padding: 1rem;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
+
+
+/* ================================== */
+/* CSS PARA O NOVO GRID DE FOTOS      */
+/* ================================== */
+
+.momentos-grid {
+    padding: 40px 5%; /* Espaçamento interno */
+}
+
+.momentos-grid h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-family: "Great Vibes", cursive;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a foto e o texto */
+    gap: 40px; /* Espaço entre a foto e o texto */
+    margin-bottom: 50px; /* Espaço entre as linhas do grid */
+    background-color: #141414; /* Fundo escuro para cada item */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Inverte a ordem para o item com a classe --reverse */
+.grid-item.grid-item--reverse {
+    flex-direction: row-reverse;
+}
+
+.grid-image, .grid-text {
+    flex: 1; /* Faz com que ambos ocupem 50% do espaço */
+}
+
+.grid-image img {
+    width: 100%;
+    height: 400px; /* Altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 5px;
+    display: block;
+}
+
+.grid-text h3 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #E50914; /* Cor de destaque, similar à do Netflix */
+}
+
+.grid-text p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Media Query para Celulares */
+@media (max-width: 768px) {
+    .grid-item, .grid-item.grid-item--reverse {
+        flex-direction: column; /* Coloca a imagem em cima do texto */
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .grid-image img {
+        height: 300px; /* Altura ajustada para telas menores */
+    }
+
+    .grid-text {
+        text-align: center;
+    }
+}
+
+.player-musica {
+    position: fixed; /* Fixa o elemento na tela */
+    bottom: 20px;    /* 20px de distância do rodapé */
+    right: 20px;     /* 20px de distância da lateral direita */
+    z-index: 1000;   /* Garante que ele fique na frente de todo o conteúdo */
+    
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombra para dar profundidade */
+    display: flex;
+    gap: 10px; /* Espaço entre os botões */
+}
+
+/* Oculta o controle de áudio padrão, já que temos os botões */
+.player-musica audio {
+    display: none;
+}
+.player-musica button {
+    background-color: #E50914; /* Cor de fundo vermelha, estilo Netflix */
+    color: #fff;
+    border: none; /* Remove a borda para um visual mais limpo */
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out; /* Transição suave para todas as propriedades */
+}
+
+/* Efeito ao passar o mouse por cima */
+.player-musica button:hover {
+    background-color: #F40612; /* Um tom de vermelho mais brilhante */
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+}
+
+/* Estilo para o botão da música que está tocando */
+.player-musica button.active {
+    background-color: #fff; /* Fundo branco para destaque */
+    color: #000; /* Texto preto */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Brilho sutil */
+}
